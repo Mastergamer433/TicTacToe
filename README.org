@@ -1,0 +1,14 @@
+* Projekt beskriving
+** TicTacToe 19/8-22
+*** Inledning
+**** Vad är det för projekt?
+Vi ska skriva ett TicTacToe spel, först lokalt sedan när det är färdigt så implementerar vi en server och klient så man kan köra mot varandra online så att man inte ska behöva spela på samma dator.
+
+**** Vad använder vi oss av?
+Vi har valt att använda C++ som språk och Emacs som Emacs-Lisp interpreter(Den tar Emacs-Lisp kod och kör den, mer info om vad en intrepreter finns [[https://sv.wikipedia.org/wiki/Interpretator][här]] och info om Emacs finns [[https://sv.wikipedia.org/wiki/Emacs][här]]), och vi använder biblioteket SDL2 för grafiskt gränssnitt annars kommer vi använda std(standard) biblioteken i c++ kompileraren g++(Gjord av Richard Stallman i projektet GNU, mer info här om [[https://sv.wikipedia.org/wiki/Richard_Stallman][Richard Stallman]] och [[https://sv.wikipedia.org/wiki/GNU_Compiler_Collection][gcc/g++]] g++ är med i gcc).
+
+**** Vad är var och annan person i detta projekt?
+Fredrik Thell är projektledare och jag Elis Odenhage är huvudprogrammerare.
+
+
+

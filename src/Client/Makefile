@@ -1,19 +1,19 @@
 CC=gcc
 
 SRC_DIR=src
-BUILD_DIR=build
+BUILD_DIR?=build
 
 .PHONY: all clean always client
 
 all: client
 
 #
-# client
+# online
 #
 client: $(BUILD_DIR)/client
 $(BUILD_DIR)/client/main: always $(SRC_DIR)/client/main.cpp
 	mkdir -p $(BUILD_DIR)/client
-	$(MAKE) -C $(SRC_DIR)/Client BUILD_DIR=$(abspath $(BUILD_DIR))
+	$(CC) -g -o $(BUILD_DIR)/client/main $(SRC_DIR)/*.cpp
 
 #
 # Always
@@ -25,5 +25,4 @@ always:
 # Clean
 #
 clean:
-	$(MAKE) -C $(SRC_DIR)/client BUILD_DIR=$(abspath $(BUILD_DIR)) clean
-	rm -rf $(BUILD_DIR)/*
+	rm -rf $(BUILD_DIR)/main

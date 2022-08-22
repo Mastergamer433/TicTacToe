@@ -1,0 +1,3 @@
+Dokumentation här: https://github.com/Mastergamer433/TicTacToe/blob/main/README.org
+Hela git repon på remoten github: https://github.com/Mastergamer433/TicTacToe/
+Alla commits(man kan kolla vad som gjordes i en commit): https://github.com/Mastergamer433/TicTacToe/commits/main

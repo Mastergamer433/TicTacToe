@@ -1,3 +1,5 @@
+#+startup: inlineimages
+
 * Projekt beskriving
 ** TicTacToe 19/8-22
 *** Inledning
@@ -10,5 +12,6 @@ Vi har valt att använda C++ som språk och Emacs som Emacs-Lisp interpreter(Den
 **** Vad är var och annan person i detta projekt?
 Fredrik Thell är projektledare och jag Elis Odenhage är huvudprogrammerare.
 
-
-
+*** Flödesschema
+#+ATTR_ORG: :width 600
+[[file:Assets/projektplanFlödesschema.png]]

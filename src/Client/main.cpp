@@ -9,6 +9,10 @@ public:
   char turn;
 };
 
+int move(GameData gd){
+  return 0;
+}
+
 int main(int argc, char *argv[]){
   GameData      gd;
 
@@ -23,7 +27,10 @@ int main(int argc, char *argv[]){
     }
     std::cout << "It's your turn " << gd.turn << ": ";
     std::cin >> gd.in;
-
+    int err = move(gd);
+    if(err != 0){
+      std::cout << "Error while making move: " << err << "\n";
+    }
   }
   return 0;
 }

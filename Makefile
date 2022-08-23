@@ -1,29 +1,26 @@
-CC=gcc
+.PHONY: clean run
+CXX := g++
+CXXFLAGS :=
+LINKFLAGS := 
+OBJS_DIR := obj
+OUT_DIR := build
+SOURCE_DIR := src/Client
+EXEC := main
+SOURCE_FILES := $(wildcard $(SOURCE_DIR)/*.cpp)
+SOURCE_HEADERS := $(wildcard $(SOURCE_DIR)/*.h)
+OBJS := $(subst $(SOURCE_DIR),$(OBJS_DIR), $(patsubst %.cpp,%.o,$(SOURCE_FILES)))
 
-SRC_DIR=src
-BUILD_DIR=build
+$(EXEC): $(OBJS)
+	$(CXX) $(OBJS) $(CXXFLAGS) $(LINKFLAGS) -o $(OUT_DIR)/$(EXEC)
 
-.PHONY: all clean always client
+$(OBJS_DIR)/%.o : $(SOURCE_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-all: client
+#Files to be compiled
+$(OBJS_DIR)/main.o: $(SOURCE_FILES) $(SOURCE_HEADERS)
 
-#
-# client
-#
-client: $(BUILD_DIR)/client
-$(BUILD_DIR)/client: always $(SRC_DIR)/client/main.cpp
-	mkdir -p $(BUILD_DIR)/client
-	$(MAKE) -C $(SRC_DIR)/Client BUILD_DIR=$(abspath $(BUILD_DIR))
-
-#
-# Always
-#
-always:
-	mkdir -p $(BUILD_DIR)
-
-#
-# Clean
-#
+run:
+	./build/main
 clean:
-	$(MAKE) -C $(SRC_DIR)/client BUILD_DIR=$(abspath $(BUILD_DIR)) clean
-	rm -rf $(BUILD_DIR)/*
+	rm $(OBJS_DIR)/*.o 
+	rm $(OUT_DIR)/$(EXEC)

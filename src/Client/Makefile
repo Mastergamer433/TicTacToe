@@ -1,6 +1,6 @@
 CC=gcc
 
-SRC_DIR=src
+SRC_DIR?=src
 BUILD_DIR?=build
 
 .PHONY: all clean always client
@@ -8,10 +8,10 @@ BUILD_DIR?=build
 all: client
 
 #
-# online
+# client
 #
 client: $(BUILD_DIR)/client
-$(BUILD_DIR)/client/main: always $(SRC_DIR)/client/main.cpp
+$(BUILD_DIR)/client: always $(SRC_DIR)/client/main.cpp
 	mkdir -p $(BUILD_DIR)/client
 	$(CC) -g -o $(BUILD_DIR)/client/main $(SRC_DIR)/*.cpp
 

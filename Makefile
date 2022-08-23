@@ -11,7 +11,7 @@ all: client
 # client
 #
 client: $(BUILD_DIR)/client
-$(BUILD_DIR)/client/main: always $(SRC_DIR)/client/main.cpp
+$(BUILD_DIR)/client: always $(SRC_DIR)/client/main.cpp
 	mkdir -p $(BUILD_DIR)/client
 	$(MAKE) -C $(SRC_DIR)/Client BUILD_DIR=$(abspath $(BUILD_DIR))
 

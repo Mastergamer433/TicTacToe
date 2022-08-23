@@ -2,20 +2,27 @@
 #include <stdio.h>
 #include <string>
 
-
-class GameData{
+class GameData {
 public:
   bool done;
-  char board[9] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+  char board[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
   std::string in;
   char turn;
 };
 
+GameData gd;
 
-GameData      gd;
-
-int move(){
-  if(gd.board[std::stoi(gd.in)] != ' '){
+int printBoard(){
+    for (int i = 0; i < sizeof(gd.board); i++) {
+      std::cout << gd.board[i];
+      if (i == 2 || i == 5 || i == 8) {
+        std::cout << "\n";
+      }
+    }
+    return 0;
+}
+int makeMove() {
+  if (gd.board[std::stoi(gd.in)] != ' ') {
     return 1;
   }
 
@@ -23,34 +30,33 @@ int move(){
   return 0;
 }
 
-int main(int argc, char *argv[]){
-
+int move() {
   bool invalidMove = true;
-  gd.done = false;
-  gd.turn = 'X';
-  while(!gd.done){
-    for(int i=0;i<sizeof(gd.board);i++){
-      std::cout << gd.board[i];
-      if(i==2||i==5||i==8){
-	std::cout << "\n";
-      }
-    }
-    invalidMove = true;
-    while(invalidMove){
+  while (invalidMove) {
     std::cout << "It's your turn " << gd.turn << ": ";
     std::cin >> gd.in;
-    gd.in = (std::to_string(((std::stoi(gd.in))-1)));
-    int err = move();
-    if(err != 0){
+    gd.in = (std::to_string(((std::stoi(gd.in)) - 1)));
+    int err = makeMove();
+    if (err != 0) {
       std::cout << "Error while making move: " << err << "\n";
       switch (err) {
       case 1:
-	std::cout << "You made an invalid move... Try again.\n";
+        std::cout << "You made an invalid move... Try again.\n";
       }
-    }else{
+    } else {
       invalidMove = false;
     }
-    }
+  }
+  return 0;
+}
+
+int main(int argc, char *argv[]) {
+  bool invalidMove = true;
+  gd.done = false;
+  gd.turn = 'X';
+  while (!gd.done) {
+    printBoard();
+    move();
   }
   return 0;
 }

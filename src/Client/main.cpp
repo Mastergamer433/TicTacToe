@@ -61,19 +61,28 @@ int move() {
 }
 
 int checkWin(){
+  int tmp = 0;
   for(int i = 0; i < sizeof(gd.winBoards); i++){
+    if(tmp<1){
+      if(tmp>0){
+	tmp=0;
+      }
     for(int j = 0; j < sizeof(gd.winBoards[i]); j++){
       if(gd.winBoards[i][j] == 'X' && gd.board[i] == gd.turn){
-
-      }else{
-	
+	tmp++;
       }
     }
+    }
+  }
+  if(tmp==3){
+    return 0;
+  }else{
+    return 1;
   }
 }
 
 int won(){
-  
+  std::cout << "you won";
 }
 
 int main(int argc, char *argv[]) {

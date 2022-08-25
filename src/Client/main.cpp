@@ -50,6 +50,10 @@ int move() {
   return 0;
 }
 
+int checkWin(){
+  
+}
+
 int main(int argc, char *argv[]) {
   bool invalidMove = true;
   gd.done = false;
@@ -57,6 +61,7 @@ int main(int argc, char *argv[]) {
   while (!gd.done) {
     printBoard();
     move();
+    int err = checkWin();
   }
   return 0;
 }

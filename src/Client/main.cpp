@@ -62,6 +62,9 @@ int main(int argc, char *argv[]) {
     printBoard();
     move();
     int err = checkWin();
+    if(err==0){
+      won();
+    }
   }
   return 0;
 }

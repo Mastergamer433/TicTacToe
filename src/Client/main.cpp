@@ -91,11 +91,28 @@ int checkWin() {
   return 1;
 }
 
+int checkTie(){
+  int isTie = 0;
+  for(int i=0;i<sizeof(gd.board);i++){
+    if(gd.board[i]!=' '){
+      isTie++;
+    }
+  }
+  if(isTie==9){
+    return 0;
+  }
+  return 1;
+}
+
 int won() {
   std::cout << gd.turn << " won!\n";
   return 0;
 }
 
+int tie() {
+  std::cout << "It's a tie!\n";
+  return 0;
+}
 int main(int argc, char *argv[]) {
   bool invalidMove = true;
   gd.done = false;
@@ -106,6 +123,11 @@ int main(int argc, char *argv[]) {
     int err = checkWin();
     if (err == 0) {
       won();
+      return 0;
+    }
+    err = checkTie();
+    if(err==0){
+      tie();
       return 0;
     }
     switchTurn();

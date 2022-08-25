@@ -22,14 +22,23 @@ public:
 
 GameData gd;
 
-int printBoard(){
-    for (int i = 0; i < sizeof(gd.board); i++) {
-      std::cout << gd.board[i];
-      if (i == 2 || i == 5 || i == 8) {
-        std::cout << "\n";
-      }
+int printBoard() {
+  for (int i = 0; i < sizeof(gd.board); i++) {
+    std::cout << gd.board[i];
+    if (i == 2 || i == 5 || i == 8) {
+      std::cout << "\n";
     }
-    return 0;
+  }
+  return 0;
+}
+
+int switchTurn() {
+  if (gd.turn == 'X') {
+    gd.turn = 'O';
+  } else {
+    gd.turn = 'X';
+  }
+  return 0;
 }
 int makeMove() {
   if (gd.board[std::stoi(gd.in)] != ' ') {
@@ -60,38 +69,29 @@ int move() {
   return 0;
 }
 
-int checkWin(){
-  if(gd.board[0] == gd.turn &&
-     gd.board[1] == gd.turn &&
-     gd.board[2] == gd.turn ||
-     gd.board[3] == gd.turn &&
-     gd.board[4] == gd.turn &&
-     gd.board[5] == gd.turn ||
-     gd.board[6] == gd.turn &&
-     gd.board[7] == gd.turn &&
-     gd.board[8] == gd.turn ||
-     gd.board[0] == gd.turn &&
-     gd.board[3] == gd.turn &&
-     gd.board[6] == gd.turn ||
-     gd.board[1] == gd.turn &&
-     gd.board[4] == gd.turn &&
-     gd.board[7] == gd.turn ||
-     gd.board[2] == gd.turn &&
-     gd.board[5] == gd.turn &&
-     gd.board[8] == gd.turn ||
-     gd.board[0] == gd.turn &&
-     gd.board[4] == gd.turn &&
-     gd.board[8] == gd.turn ||
-     gd.board[2] == gd.turn &&
-     gd.board[4] == gd.turn &&
-     gd.board[6] == gd.turn 
-     ){
+int checkWin() {
+  if (gd.board[0] == gd.turn && gd.board[1] == gd.turn &&
+          gd.board[2] == gd.turn ||
+      gd.board[3] == gd.turn && gd.board[4] == gd.turn &&
+          gd.board[5] == gd.turn ||
+      gd.board[6] == gd.turn && gd.board[7] == gd.turn &&
+          gd.board[8] == gd.turn ||
+      gd.board[0] == gd.turn && gd.board[3] == gd.turn &&
+          gd.board[6] == gd.turn ||
+      gd.board[1] == gd.turn && gd.board[4] == gd.turn &&
+          gd.board[7] == gd.turn ||
+      gd.board[2] == gd.turn && gd.board[5] == gd.turn &&
+          gd.board[8] == gd.turn ||
+      gd.board[0] == gd.turn && gd.board[4] == gd.turn &&
+          gd.board[8] == gd.turn ||
+      gd.board[2] == gd.turn && gd.board[4] == gd.turn &&
+          gd.board[6] == gd.turn) {
     return 0;
   }
   return 1;
 }
 
-int won(){
+int won() {
   std::cout << gd.turn << " won!\n";
   return 0;
 }
@@ -104,10 +104,11 @@ int main(int argc, char *argv[]) {
     printBoard();
     move();
     int err = checkWin();
-    if(err==0){
+    if (err == 0) {
       won();
       return 0;
     }
+    switchTurn();
   }
   return 0;
 }

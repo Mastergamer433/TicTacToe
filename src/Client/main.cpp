@@ -61,7 +61,19 @@ int move() {
 }
 
 int checkWin(){
+  for(int i = 0; i < sizeof(gd.winBoards); i++){
+    for(int j = 0; j < sizeof(gd.winBoards[i]); j++){
+      if(gd.winBoards[i][j] == 'X' && gd.board[i] == gd.turn){
 
+      }else{
+	
+      }
+    }
+  }
+}
+
+int won(){
+  
 }
 
 int main(int argc, char *argv[]) {

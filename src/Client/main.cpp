@@ -61,28 +61,39 @@ int move() {
 }
 
 int checkWin(){
-  int tmp = 0;
-  for(int i = 0; i < sizeof(gd.winBoards); i++){
-    if(tmp<1){
-      if(tmp>0){
-	tmp=0;
-      }
-    for(int j = 0; j < sizeof(gd.winBoards[i]); j++){
-      if(gd.winBoards[i][j] == 'X' && gd.board[i] == gd.turn){
-	tmp++;
-      }
-    }
-    }
-  }
-  if(tmp==3){
+  if(gd.board[0] == gd.turn &&
+     gd.board[1] == gd.turn &&
+     gd.board[2] == gd.turn ||
+     gd.board[3] == gd.turn &&
+     gd.board[4] == gd.turn &&
+     gd.board[5] == gd.turn ||
+     gd.board[6] == gd.turn &&
+     gd.board[7] == gd.turn &&
+     gd.board[8] == gd.turn ||
+     gd.board[0] == gd.turn &&
+     gd.board[3] == gd.turn &&
+     gd.board[6] == gd.turn ||
+     gd.board[1] == gd.turn &&
+     gd.board[4] == gd.turn &&
+     gd.board[7] == gd.turn ||
+     gd.board[2] == gd.turn &&
+     gd.board[5] == gd.turn &&
+     gd.board[8] == gd.turn ||
+     gd.board[0] == gd.turn &&
+     gd.board[4] == gd.turn &&
+     gd.board[8] == gd.turn ||
+     gd.board[2] == gd.turn &&
+     gd.board[4] == gd.turn &&
+     gd.board[6] == gd.turn 
+     ){
     return 0;
-  }else{
-    return 1;
   }
+  return 1;
 }
 
 int won(){
-  std::cout << "you won";
+  std::cout << gd.turn << " won!\n";
+  return 0;
 }
 
 int main(int argc, char *argv[]) {
@@ -95,6 +106,7 @@ int main(int argc, char *argv[]) {
     int err = checkWin();
     if(err==0){
       won();
+      return 0;
     }
   }
   return 0;

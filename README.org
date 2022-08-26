@@ -15,3 +15,31 @@ Fredrik Thell är projektledare och jag Elis Odenhage är huvudprogrammerare.
 *** Flödesschema
 #+ATTR_ORG: :width 600
 [[file:Assets/projektplanFlödesschema.png]]
+
+* Loggbok
+** Vecka 34
+*** 22/8-22
+Jag började med att göra ett simpelt hello world program som bara skriver ut hello world.
+Sedan så fixade Fredrik Projektplan/Flödesschemat. [[https://github.com/Mastergamer433/TicTacToe/commit/c226581244306cdf1759d91cf31096cd5989050c][Commiten för flödeschemat]] [[file:README.org::17][här]] finns det.
+Sedan fixade jag en klass som lagrar input och bräde bland annat, en loop som skriver ut brädet och som tar input och lägger det i in variabeln. [[https://github.com/Mastergamer433/TicTacToe/commit/727fb485565e110df275647429b0a54c24fafb34][Commiten för det]].
+*** 23/8-22
+Jag implementerade vems tur det är och skrev ut det varje gång loopen körs. [[https://github.com/Mastergamer433/TicTacToe/commit/45e34a41cfa0fc7ba162448f5cba30352e215b7d][Här är commiten fär det]].
+Sedan implementerade jag en move funktion som inte gjorde något men returnerade ett värde, 0, sedan kollar den efter errors och om där finns ett error så skriver den ut det. [[https://github.com/Mastergamer433/TicTacToe/commit/ddfa0c5a4f0483dd155f41fe125816a3ece14e30][Commiten för det finns här]].
+Sen fixade jag bättre hantering av felmeddelanden och att man kan göra ett drag. [[https://github.com/Mastergamer433/TicTacToe/commit/2bf83e83e84a603b803f5066f14b10ea390236d3][Commmiten]].
+Efter det fixade jag systemet för att kompilera. [[https://github.com/Mastergamer433/TicTacToe/commit/492de3d8cd42c62988c5828b7e791fa3861f8cfa][här]].
+Efter att jag fixade det så märskte jag att det inte funkar, men jag är för dålig på make för att veta vad som är problemet, så jag kontaktade en person på discord vid användarnamn TehBoss som hjälpte mig med det, så jag kan kompilera och köra på ett smidigare sätt. [[https://github.com/Mastergamer433/TicTacToe/commit/6a694a92a0b4395f2f91b2641ebd7110328da987][Här är den commiten]].
+Sen så fixade jag lite fil struktur, så man kan arbeta med koden. [[https://github.com/Mastergamer433/TicTacToe/commit/adf06ca4d15d6b4286189d7cf6cd2fe23c9bb3c9][Här finns commiten för det]].
+Sedan skapade jag bara en tom fil som heter .gitignore och används av git, allting i den kommer den ignorera asså det kommer inte finnas i git repositoryn. [[https://github.com/Mastergamer433/TicTacToe/commit/e5cafcb91637789655e4918e0cdd06de4af2a796][här är det]].
+Sedan fixade jag så den ignorerar alla kompilerade filer och så för det är rätt onödigt. [[https://github.com/Mastergamer433/TicTacToe/commit/4589953a13b7b231b1a59dfed0a6bb1a4e421aab][Här finns den commiten]].
+Och efter det så lade jag till så den inte skulle ta med alla autosave filer som emacs har. Det är de som heter <namn på fil>~. [[https://github.com/Mastergamer433/TicTacToe/commit/26518fa712a256d3129bccdd42352cafd83edb8b][Här är den commiten]].
+
+
+*** 25/8-22
+[[https://github.com/Mastergamer433/TicTacToe/commit/e81395dd95a450cf719c9c1aad8ed75cb94b9aec][Här]] fixade jag en funktion som kollar om någon har vunnit.
+Om någon vinner så kallar den på funktionen won [[https://github.com/Mastergamer433/TicTacToe/commit/9a7106e979d20a17969646faddaca21e7b958d9e][här]].
+[[https://github.com/Mastergamer433/TicTacToe/commit/17ece1198b6ebf7825cae610cb9beb224e80de5d][Här]] lägger jag till alla bräden som är vinster.
+[[https://github.com/Mastergamer433/TicTacToe/commit/14128c90d75c0a754410af1393974b586ac38a17][Här]] lade jag till kod för att kolla om någon har vunnit, men den funkar inte så bra så jag tar hjälp av olika personer i en discord server jag är med i.
+Sedan tog jag bort filer som inte behövs(Emacs's auto save filer.).
+[[https://github.com/Mastergamer433/TicTacToe/commit/7831360feac27b8c9d8fb34b79b5160832a820de][Här]] bytte jag ut sättet att kolla vinst.
+Sedan ändrar jag om vilken spelare det är genom att kolla om det är X och i så fall ska det bli O annars ska det bli X [[https://github.com/Mastergamer433/TicTacToe/commit/6f328b7cb6be7bb582e7b61b8a4147f2d6cc62a7][här]].
+[[https://github.com/Mastergamer433/TicTacToe/commit/2bb16483ed78ffedb2b501515987efd407475173][Här]] kan du nu få oavgjort där den loopar igenom hela brädet och kollar om den hittar en plats där det finns något och i så fall plusa på en variabel med 1 sedan när den är färdig så kollar den om den variabeln är 9, det borde den ju vara om vi har ett bräde 3x3 och det är fullt och varje gång den hittar en icke tom så plusar den på med 1, så är det ju oavgjort.

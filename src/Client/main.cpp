@@ -29,7 +29,7 @@ class ClientData {
 public:
   int sock = 0, valread, client_fd;
   struct sockaddr_in serv_addr;
-  char buffer[1024] = {0};
+  char buffer[1024] = {0}, message[1024] = {0}, type[1024] = {0};
 };
 
 GameData gd;
@@ -78,7 +78,16 @@ int write(const char* message){
 
 int read(){
   cd.valread = read(cd.sock, cd.buffer, 1024);
-  printf("%s\n", cd.buffer);
+  bool done = false;
+  int i = 0;
+  while(!done){
+    if(cd.buffer[i] == ' '){
+      break;
+    }
+    cd.type[i] = cd.buffer[i];
+    i++;
+  }
+  // printf("%s\n", cd.buffer);
 }
 
 int makeMove(){
@@ -114,8 +123,8 @@ int main(int argc, char *argv[]) {
   //   printBoard();
   //   move();
   // }
-  write("test");
   read();
+  printf("\n%s", cd.type);
   // closing the connected socket
   close(cd.client_fd);
   return 0;

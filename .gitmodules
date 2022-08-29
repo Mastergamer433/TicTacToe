@@ -1,0 +1,9 @@
+[submodule "Server"]
+	path = Server
+	url = https://github.com/mastergamer433/TicTacToeServer
+[submodule "src/Client"]
+	path = src/Client
+	url = https://github.com/mastergamer433/TicTacToeClient
+[submodule "src/Server"]
+	path = src/Server
+	url = https://github.com/mastergamer433/TicTacToeServer

@@ -8,8 +8,8 @@ all       = $(CLIENT) $(SERVER)
 all: $(all)
 
 $(all):
-	mkdir $(BUILD_DIR)
-	mkdir $(OBJS_DIR)
+	mkdir $(BUILD_DIR) -p
+	mkdir $(OBJS_DIR) -p
 	$(MAKE) --directory=$@ BUILD_DIR=$(abspath $(BUILD_DIR)) OBJS_DIR=$(abspath $(OBJS_DIR))
 
 clean:

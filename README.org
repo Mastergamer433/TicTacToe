@@ -44,3 +44,8 @@ Sedan tog jag bort filer som inte behövs(Emacs's auto save filer.).
 Sedan ändrar jag om vilken spelare det är genom att kolla om det är X och i så fall ska det bli O annars ska det bli X [[https://github.com/Mastergamer433/TicTacToe/commit/6f328b7cb6be7bb582e7b61b8a4147f2d6cc62a7][här]].
 [[https://github.com/Mastergamer433/TicTacToe/commit/2bb16483ed78ffedb2b501515987efd407475173][Här]] kan du nu få oavgjort där den loopar igenom hela brädet och kollar om den hittar en plats där det finns något och i så fall plusa på en variabel med 1 sedan när den är färdig så kollar den om den variabeln är 9, det borde den ju vara om vi har ett bräde 3x3 och det är fullt och varje gång den hittar en icke tom så plusar den på med 1, så är det ju oavgjort.
 [[https://github.com/Mastergamer433/TicTacToe/commit/98ec049332c65f01ad6639f46103a921bb97b43c][Här]] kan du göra ett drag online.
+
+** Vecka 35
+Jag började med att fixa lite med submodules för att all source control och kompilering och saker ska bli enklare, så jag började med submodules och gick sedan till kmpilering och grejer.
+
+Senare skrev jag kod för att skicka saker mellan server och klient och lyckas med lite hjälp av TehBoss(igen) på DC.

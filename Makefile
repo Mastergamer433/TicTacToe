@@ -1,7 +1,5 @@
 OBJS_DIR = obj
 BUILD_DIR = build
-OBJS_DIR = obj
-BUILD_DIR = build
 CLIENT    = src/Client
 SERVER    = src/Server
 all       = $(CLIENT) $(SERVER)
@@ -10,8 +8,8 @@ all       = $(CLIENT) $(SERVER)
 all: $(all)
 
 $(all):
-	mkdir BUILD_DIR
-	mkdir OBJS_DIR
+	mkdir $(BUILD_DIR)
+	mkdir $(OBJS_DIR)
 	$(MAKE) --directory=$@ BUILD_DIR=$(abspath $(BUILD_DIR)) OBJS_DIR=$(abspath $(OBJS_DIR))
 
 clean:
